@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/amine/dev/scama/lab/Ass 2/conf/messages,/home/amine/dev/scama/lab/Ass 2/target/scala-3.3.1/classes/messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/amine/dev/scama/lab/Ass 2/conf/routes,/home/amine/dev/scama/lab/Ass 2/target/scala-3.3.1/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/amine/dev/scama/lab/Ass 2/conf/application.conf,/home/amine/dev/scama/lab/Ass 2/target/scala-3.3.1/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/amine/dev/scama/lab/Ass 2/conf/logback.xml,/home/amine/dev/scama/lab/Ass 2/target/scala-3.3.1/classes/logback.xml)[0m

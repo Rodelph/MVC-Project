@@ -1,0 +1,52 @@
+@(form: Form[models.User], postUrl: Call)(implicit session: Session, request: MessagesRequestHeader)
+@main("User Sign Up", session) {
+    @defining(play.core.PlayVersion.current) { version =>
+        <div class="wrapper fadeInDown">
+            <div class="main-share-title">
+                <h1>Sign Up</h1>
+            </div>
+
+            <div id="user-signup-form">
+                @request.flash.data.map{ case (name, value) =>
+                <div>@name: @value</div>
+                }
+
+                @* Global errors are not tied to any particular form field *@
+                @if(form.hasGlobalErrors) {
+                    @form.globalErrors.map { (error: FormError) =>
+                        <div>
+                            Error: @error.key: @error.message
+                        </div>
+                    }
+                }
+
+                @helper.form(postUrl, Symbol("id") -> "user-signup-form") {
+                    @helper.CSRF.formField
+                    @helper.inputText(
+                        form("username"),
+                        Symbol("placeholder") -> "username",
+                        Symbol("id") -> "username",
+                        Symbol("size") -> 60
+                    )
+
+                    @helper.inputText(
+                        form("tag"),
+                        Symbol("placeholder") -> "tag",
+                        Symbol("id") -> "tag",
+                        Symbol("size") -> 60
+                    )
+
+                    @helper.inputPassword(
+                        form("password"),
+                        Symbol("placeholder") -> "password",
+                        Symbol("id") -> "password",
+                        Symbol("size") -> 60
+                    )
+                    <div class="submit-button-container">
+                        <input type="submit" value="Sign Up">
+                    </div>
+                    }
+            </div>
+        </div>
+    }
+}

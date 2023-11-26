@@ -1,0 +1,19 @@
+@(img: String)(implicit session: Session)@* (implicit flash: Flash)*@
+
+@main("Profile Page", session) {
+
+    <div class="main-share-title">
+        <h1>Profile Page</h1>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-image">
+            <img src="@img" alt="Profile Image">
+        </div>
+        <div class="profile-info">
+            <div>Username</div>
+            <div><span class="tab"></span>@session.get(models.Global.SESSION_USERNAME_KEY).get</div>
+                <!-- Add other user information here : Number of likes and comments-->
+        </div>
+    </div>
+}

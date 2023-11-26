@@ -1,0 +1,22 @@
+@()(implicit session: Session)
+
+@main("Upload Picture", session) {
+    <div class="main-share-title">
+        <h1>Upload Picture</h1>
+    </div>
+
+    @helper.form(routes.SharePictureController.upPicture(), Symbol("enctype") -> "multipart/form-data") {
+
+        <div class="centered-textarea">
+            <label for="picture-info">Information on the picture:</label>
+            <textarea id="picture-info" name="pictureInfo"></textarea>
+        </div>
+
+        <div class="form-container">
+            <input type="file" name="picture" class="upload-btn">
+            <form action="@routes.SharePictureController.uploadPicture()" method="post" enctype="multipart/form-data">
+                <input type="submit" value="Upload" class="upload-submit">
+            </form>
+        </div>
+    }
+}

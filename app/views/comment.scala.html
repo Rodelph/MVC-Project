@@ -1,0 +1,35 @@
+@(data: DataMap)(implicit session: Session)@* (implicit flash: Flash)*@
+
+@main("Comm Picture", session) {
+    <div class="main-share-title">
+        <h1>-- Fakebook --</h1>
+    </div>
+
+        <!-- Your HTML structure -->
+    <div class="image-container">
+
+        <div>
+            <label>This picture was added at : @data.date</label>
+        </div>
+
+        <div style="flex: 1; margin-right: 20px;">
+            <label>Description : @data.description</label>
+        </div>
+
+        <div class="image-block">
+            "@data.pictureLink"
+            <img class="display-img" src="@data.pictureLink" alt="Image">
+        </div>
+            <!-- Comment Section -->
+        <div class="comment-section">
+                <!-- Display existing comments -->
+            <div class="existing-comments">
+                <h3>Comments:</h3>
+                <p>User 1 : Cheap ass dog</p>
+                <p>User 2 : Is he alive ?</p>
+                <p>User 3 : Is he alive ?</p>
+            </div>
+        </div>
+
+    </div>
+}

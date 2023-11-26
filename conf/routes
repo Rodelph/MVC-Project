@@ -1,0 +1,30 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+GET / controllers.HomeController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET /assets/*file controllers.Assets.versioned(path="/public", file: Asset)
+
+# user signup
+GET /signup controllers.SignUpController.showSignUpForm
+POST /doSignup controllers.SignUpController.processSignUpAttempt
+
+# user/admin login
+GET /login controllers.LoginController.showLoginForm
+POST /doLogin controllers.LoginController.processLoginAttempt
+
+# pages for authenticated users
+GET /logout controllers.AuthenticatedUserController.logout
+
+GET /mainpage controllers.MainPageController.showSharePicture()
+
+GET /uploadPage controllers.SharePictureController.uploadPicture()
++nocsrf
+POST /uploadPictures controllers.SharePictureController.upPicture()
+
+GET /profile controllers.ProfileController.showProfile()
+
+GET /comment/*id controllers.CommentOnImageController.showCommentImage(id: Int)
