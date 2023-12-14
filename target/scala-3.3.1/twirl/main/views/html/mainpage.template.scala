@@ -29,37 +29,44 @@ Seq[Any](format.raw/*1.80*/("""
 """),_display_(/*3.2*/main("Sharing Picture", session)/*3.34*/ {_display_(Seq[Any](format.raw/*3.36*/("""
     """),format.raw/*4.5*/("""<div class="main-share-title">
         <h1>-- Fakebook --</h1>
-    </div>
 
+        <div>
+            <a href=""""),_display_(/*8.23*/routes/*8.29*/.MainPageController.sortByDate()),format.raw/*8.61*/("""" class="sort-link">Sort by Date</a>
+            <a href=""""),_display_(/*9.23*/routes/*9.29*/.MainPageController.sortByLikes()),format.raw/*9.62*/("""" class="sort-link">Sort by Likes</a>
+        </div>
+    </div>
         <!-- Your HTML structure -->
     <div class="image-container">
-        """),_display_(/*10.10*/for(data <- dataDao) yield /*10.30*/ {_display_(Seq[Any](format.raw/*10.32*/("""
-            """),format.raw/*11.13*/("""<div>
-                <label>This picture was added at : """),_display_(/*12.53*/data/*12.57*/.date),format.raw/*12.62*/("""</label>
+        """),_display_(/*14.10*/for(data <- dataDao) yield /*14.30*/ {_display_(Seq[Any](format.raw/*14.32*/("""
+            """),format.raw/*15.13*/("""<div>
+                <label>This picture was added at : """),_display_(/*16.53*/data/*16.57*/.date),format.raw/*16.62*/("""</label>
+                <br>
+                <label>This images has """),_display_(/*18.41*/data/*18.45*/.likes),format.raw/*18.51*/(""" """),format.raw/*18.52*/("""likes </label>
             </div>
 
             <div style="flex: 1; margin-right: 20px;">
-                <label>Description : """),_display_(/*16.39*/data/*16.43*/.description),format.raw/*16.55*/("""</label>
+                <label>Description : """),_display_(/*22.39*/data/*22.43*/.description),format.raw/*22.55*/("""</label>
             </div>
 
             <div class="image-block">
-                """"),_display_(/*20.19*/data/*20.23*/.pictureLink),format.raw/*20.35*/(""""
-                <img class="display-img" src=""""),_display_(/*21.48*/data/*21.52*/.pictureLink),format.raw/*21.64*/("""" alt="Image">
+                <img class="display-img" src=""""),_display_(/*26.48*/data/*26.52*/.pictureLink),format.raw/*26.64*/("""" alt="Image">
             </div>
                 <!-- Comment Section -->
             <div class="comment-section">
                     <!-- Display existing comments -->
                 <div class="existing-comments">
                     <h3>Comments:</h3>
-                    <p>User 1 : Cheap ass dog</p>
-                    <p>User 2 : Is he alive ?</p>
-
-                    <p><a href=""""),_display_(/*31.34*/routes/*31.40*/.CommentOnImageController.showCommentImage(data.pictureID)),format.raw/*31.98*/("""">See More</a></p>
+                    """),_display_(/*33.22*/for((key, values) <- data.commentShared) yield /*33.62*/ {_display_(Seq[Any](format.raw/*33.64*/("""
+                        """),_display_(/*34.26*/for(value <- values) yield /*34.46*/ {_display_(Seq[Any](format.raw/*34.48*/("""
+                            """),format.raw/*35.29*/("""<p>"""),_display_(/*35.33*/key),format.raw/*35.36*/(""" """),format.raw/*35.37*/(""": """),_display_(/*35.40*/value),format.raw/*35.45*/("""</p>
+                        """)))}),format.raw/*36.26*/("""
+                    """)))}),format.raw/*37.22*/("""
+                    """),format.raw/*38.21*/("""<p><a href=""""),_display_(/*38.34*/routes/*38.40*/.CommentOnImageController.showCommentImage(data.pictureID)),format.raw/*38.98*/("""">See More</a></p>
                 </div>
             </div>
-        """)))}),format.raw/*34.10*/("""
-    """),format.raw/*35.5*/("""</div>
-""")))}),format.raw/*36.2*/("""
+        """)))}),format.raw/*41.10*/("""
+    """),format.raw/*42.5*/("""</div>
+""")))}),format.raw/*43.2*/("""
 """))
       }
     }
@@ -77,9 +84,9 @@ Seq[Any](format.raw/*1.80*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/mainpage.scala.html
-                  HASH: 0d425921d4db16bbf595266d07f84e45a830a08c
-                  MATRIX: 784->1|929->79|957->82|997->114|1036->116|1067->121|1249->276|1285->296|1325->298|1366->311|1451->369|1464->373|1490->378|1639->500|1652->504|1685->516|1797->601|1810->605|1843->617|1919->666|1932->670|1965->682|2385->1075|2400->1081|2479->1139|2580->1209|2612->1214|2650->1222
-                  LINES: 22->1|27->1|29->3|29->3|29->3|30->4|36->10|36->10|36->10|37->11|38->12|38->12|38->12|42->16|42->16|42->16|46->20|46->20|46->20|47->21|47->21|47->21|57->31|57->31|57->31|60->34|61->35|62->36
+                  HASH: c6527d2b43d54e0a0467f6ef16b0a299f2289e34
+                  MATRIX: 784->1|929->79|957->82|997->114|1036->116|1067->121|1193->221|1207->227|1259->259|1344->318|1358->324|1411->357|1582->501|1618->521|1658->523|1699->536|1784->594|1797->598|1823->603|1920->673|1933->677|1960->683|1989->684|2144->812|2157->816|2190->828|2331->942|2344->946|2377->958|2684->1238|2740->1278|2780->1280|2833->1306|2869->1326|2909->1328|2966->1357|2997->1361|3021->1364|3050->1365|3080->1368|3106->1373|3167->1403|3220->1425|3269->1446|3309->1459|3324->1465|3403->1523|3504->1593|3536->1598|3574->1606
+                  LINES: 22->1|27->1|29->3|29->3|29->3|30->4|34->8|34->8|34->8|35->9|35->9|35->9|40->14|40->14|40->14|41->15|42->16|42->16|42->16|44->18|44->18|44->18|44->18|48->22|48->22|48->22|52->26|52->26|52->26|59->33|59->33|59->33|60->34|60->34|60->34|61->35|61->35|61->35|61->35|61->35|61->35|62->36|63->37|64->38|64->38|64->38|64->38|67->41|68->42|69->43
                   -- GENERATED --
               */
           

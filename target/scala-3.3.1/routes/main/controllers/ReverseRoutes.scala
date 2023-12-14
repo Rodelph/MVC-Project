@@ -39,29 +39,41 @@ package controllers {
   
   }
 
-  // @LINE:30
+  // @LINE:32
   class ReverseCommentOnImageController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:30
+    // @LINE:32
     def showCommentImage(id:Int): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "comment/" + implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id))
     }
   
+    // @LINE:34
+    def submitComment(username:String, id:Int): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "upcomment/" + implicitly[play.api.mvc.PathBindable[String]].unbind("username", username) + implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id))
+    }
+  
+    // @LINE:36
+    def submitLikeToImage(username:String, id:Int): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "comment/" + implicitly[play.api.mvc.PathBindable[String]].unbind("username", username) + implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id))
+    }
+  
   }
 
-  // @LINE:28
+  // @LINE:30
   class ReverseProfileController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:28
+    // @LINE:30
     def showProfile(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "profile")
@@ -80,6 +92,18 @@ package controllers {
     def showSharePicture(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "mainpage")
+    }
+  
+    // @LINE:23
+    def sortByDate(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "mainpage+s+d")
+    }
+  
+    // @LINE:24
+    def sortByLikes(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "mainpage+s+l")
     }
   
   }
@@ -120,20 +144,20 @@ package controllers {
   
   }
 
-  // @LINE:24
+  // @LINE:26
   class ReverseSharePictureController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:24
+    // @LINE:26
     def uploadPicture(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "uploadPage")
     }
   
-    // @LINE:26
+    // @LINE:28
     def upPicture(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "uploadPictures")

@@ -49,7 +49,6 @@ class SignUpController @Inject()(
             Redirect(routes.LoginController.showLoginForm).flashing("ERROR" -> "User Already Exists. Please log in !")
           else
             userDao.addUser(user.username, user.password, user.tag)
-            print(userDao.users)
             Redirect(routes.LoginController.showLoginForm)
               .flashing("NOTIFY" -> "User added !")
         else

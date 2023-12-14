@@ -421,6 +421,15 @@ input[type=text]:placeholder {
  margin: 0 auto; /* Horizontally center the textarea */
 }
 
+.comment-section textarea {
+ width: 400px; /* Initial width, will not change */
+ height: 100px; /* Initial height, will not change */
+ min-width: 200px; /* Minimum width to enforce fixed size */
+ min-height: 30px; /* Minimum height to enforce fixed size */
+ resize: none; /* Disable textarea resizing */
+ margin: 0 auto; /* Horizontally center the textarea */
+}
+
 *:focus {
  outline: none;
 }
@@ -548,6 +557,28 @@ input[type=text]:placeholder {
 
 .upload-submit:hover {
  background-color: #2980b9;
+}
+
+
+/* Styles for the sorting links */
+.sort-links {
+ margin-bottom: 10px; /* Add some spacing between links and content */
+}
+
+.sort-link {
+ display: inline-block;
+ margin-right: 10px; /* Add space between the sorting links */
+ text-decoration: none;
+ padding: 6px 12px;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ background-color: #f0f0f0;
+ color: #333;
+ transition: background-color 0.3s ease;
+}
+
+.sort-link:hover {
+ background-color: #e0e0e0;
 }
 
 

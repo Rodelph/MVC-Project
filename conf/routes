@@ -20,6 +20,8 @@ POST /doLogin controllers.LoginController.processLoginAttempt
 GET /logout controllers.AuthenticatedUserController.logout
 
 GET /mainpage controllers.MainPageController.showSharePicture()
+GET /mainpage+s+d controllers.MainPageController.sortByDate()
+GET /mainpage+s+l controllers.MainPageController.sortByLikes()
 
 GET /uploadPage controllers.SharePictureController.uploadPicture()
 +nocsrf
@@ -28,3 +30,7 @@ POST /uploadPictures controllers.SharePictureController.upPicture()
 GET /profile controllers.ProfileController.showProfile()
 
 GET /comment/*id controllers.CommentOnImageController.showCommentImage(id: Int)
++nocsrf
+POST /upcomment/*username*id controllers.CommentOnImageController.submitComment(username: String, id: Int)
++nocsrf
+POST /comment/*username*id controllers.CommentOnImageController.submitLikeToImage(username: String, id: Int)

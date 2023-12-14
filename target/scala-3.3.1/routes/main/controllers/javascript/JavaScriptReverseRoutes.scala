@@ -49,7 +49,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:30
+  // @LINE:32
   class ReverseCommentOnImageController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -57,7 +57,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:30
+    // @LINE:32
     def showCommentImage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommentOnImageController.showCommentImage",
       """
@@ -67,9 +67,29 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:34
+    def submitComment: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommentOnImageController.submitComment",
+      """
+        function(username0,id1) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "upcomment/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("username", username0) + (""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("id", id1)})
+        }
+      """
+    )
+  
+    // @LINE:36
+    def submitLikeToImage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommentOnImageController.submitLikeToImage",
+      """
+        function(username0,id1) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "comment/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("username", username0) + (""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("id", id1)})
+        }
+      """
+    )
+  
   }
 
-  // @LINE:28
+  // @LINE:30
   class ReverseProfileController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -77,7 +97,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:28
+    // @LINE:30
     def showProfile: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ProfileController.showProfile",
       """
@@ -103,6 +123,26 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "mainpage"})
+        }
+      """
+    )
+  
+    // @LINE:23
+    def sortByDate: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.MainPageController.sortByDate",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "mainpage+s+d"})
+        }
+      """
+    )
+  
+    // @LINE:24
+    def sortByLikes: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.MainPageController.sortByLikes",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "mainpage+s+l"})
         }
       """
     )
@@ -159,7 +199,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:24
+  // @LINE:26
   class ReverseSharePictureController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -167,7 +207,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:24
+    // @LINE:26
     def uploadPicture: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.SharePictureController.uploadPicture",
       """
@@ -177,7 +217,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:28
     def upPicture: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.SharePictureController.upPicture",
       """

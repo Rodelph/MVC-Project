@@ -1,6 +1,7 @@
 @(data: DataMap)(implicit session: Session)@* (implicit flash: Flash)*@
 
 @main("Comm Picture", session) {
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
     <div class="main-share-title">
         <h1>-- Fakebook --</h1>
     </div>
@@ -14,22 +15,43 @@
 
         <div style="flex: 1; margin-right: 20px;">
             <label>Description : @data.description</label>
+            <br>
+            <label>This images has @data.likes likes </label>
         </div>
 
+        @helper.form(routes.CommentOnImageController.submitLikeToImage(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID), Symbol("enctype") -> "multipart/form-data") {
         <div class="image-block">
-            "@data.pictureLink"
-            <img class="display-img" src="@data.pictureLink" alt="Image">
+            <form action="@routes.CommentOnImageController.submitLikeToImage(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID)" method="post" enctype="multipart/form-data">
+                <img class="display-img" src="@data.pictureLink" alt="Image">
+                <button class="like-button" type="submit" value="Submit"><i class="far fa-thumbs-up"></i>Like</button>
+            </form>
         </div>
+        }
             <!-- Comment Section -->
         <div class="comment-section">
                 <!-- Display existing comments -->
             <div class="existing-comments">
                 <h3>Comments:</h3>
-                <p>User 1 : Cheap ass dog</p>
-                <p>User 2 : Is he alive ?</p>
-                <p>User 3 : Is he alive ?</p>
+                @for((key, values) <- data.commentShared) {
+                    @for(value <- values) {
+                        <p>@key : @value</p>
+                    }
+                }
             </div>
-        </div>
 
+            <!-- Add a form for submitting a comment -->
+            @helper.form(routes.CommentOnImageController.submitComment(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID), Symbol("enctype") -> "multipart/form-data") {
+                <div class="centered-textarea">
+                    <label for="picture-info">Information on the picture:</label>
+                    <form action="@routes.CommentOnImageController.submitComment(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID)" method="post" enctype="multipart/form-data">
+                        <label>
+                            <textarea class="comment-section" name="commentText" rows="2" cols="10" placeholder="Add your comment here..."></textarea>
+                        </label>
+                        <br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            }
+        </div>
     </div>
 }

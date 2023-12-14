@@ -1,0 +1,18 @@
+@(welcome: String)(implicit session: Session)
+
+  @main(welcome, session) {
+    @defining(play.core.PlayVersion.current) { version =>
+
+      <div id="content" class="wrapper doc">
+        <article>
+          <p class="main-page-title">
+            Project Assignment 2 : Fake Facebook made by a better Zuckerburg (No ads included. For now...).
+          </p>
+          <p class="under-title">
+            Project Made by : AMINE NAQI<br>
+            Student ID : 0562497
+          </p>
+        </article>
+      </div>
+    }
+  }

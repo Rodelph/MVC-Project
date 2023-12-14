@@ -24,11 +24,11 @@ class Routes(
   AuthenticatedUserController_1: controllers.AuthenticatedUserController,
   // @LINE:22
   MainPageController_3: controllers.MainPageController,
-  // @LINE:24
+  // @LINE:26
   SharePictureController_5: controllers.SharePictureController,
-  // @LINE:28
-  ProfileController_0: controllers.ProfileController,
   // @LINE:30
+  ProfileController_0: controllers.ProfileController,
+  // @LINE:32
   CommentOnImageController_2: controllers.CommentOnImageController,
   val prefix: String
 ) extends GeneratedRouter {
@@ -47,11 +47,11 @@ class Routes(
     AuthenticatedUserController_1: controllers.AuthenticatedUserController,
     // @LINE:22
     MainPageController_3: controllers.MainPageController,
-    // @LINE:24
+    // @LINE:26
     SharePictureController_5: controllers.SharePictureController,
-    // @LINE:28
-    ProfileController_0: controllers.ProfileController,
     // @LINE:30
+    ProfileController_0: controllers.ProfileController,
+    // @LINE:32
     CommentOnImageController_2: controllers.CommentOnImageController
   ) = this(errorHandler, HomeController_8, Assets_7, SignUpController_6, LoginController_4, AuthenticatedUserController_1, MainPageController_3, SharePictureController_5, ProfileController_0, CommentOnImageController_2, "/")
 
@@ -74,10 +74,14 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """doLogin""", """controllers.LoginController.processLoginAttempt"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.AuthenticatedUserController.logout"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """mainpage""", """controllers.MainPageController.showSharePicture()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """mainpage+s+d""", """controllers.MainPageController.sortByDate()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """mainpage+s+l""", """controllers.MainPageController.sortByLikes()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """uploadPage""", """controllers.SharePictureController.uploadPicture()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """uploadPictures""", """controllers.SharePictureController.upPicture()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile""", """controllers.ProfileController.showProfile()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """comment/""" + "$" + """id<.+>""", """controllers.CommentOnImageController.showCommentImage(id:Int)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """upcomment/""" + "$" + """username<.+>""" + "$" + """id<.+>""", """controllers.CommentOnImageController.submitComment(username:String, id:Int)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """comment/""" + "$" + """username<.+>""" + "$" + """id<.+>""", """controllers.CommentOnImageController.submitLikeToImage(username:String, id:Int)"""),
     Nil
   ).foldLeft(Seq.empty[(String, String, String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String, String, String)]
@@ -229,11 +233,47 @@ class Routes(
     )
   )
 
+  // @LINE:23
+  private[this] lazy val controllers_MainPageController_sortByDate8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("mainpage+s+d")))
+  )
+  private[this] lazy val controllers_MainPageController_sortByDate8_invoker = createInvoker(
+    MainPageController_3.sortByDate(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.MainPageController",
+      "sortByDate",
+      Nil,
+      "GET",
+      this.prefix + """mainpage+s+d""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:24
-  private[this] lazy val controllers_SharePictureController_uploadPicture8_route = Route("GET",
+  private[this] lazy val controllers_MainPageController_sortByLikes9_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("mainpage+s+l")))
+  )
+  private[this] lazy val controllers_MainPageController_sortByLikes9_invoker = createInvoker(
+    MainPageController_3.sortByLikes(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.MainPageController",
+      "sortByLikes",
+      Nil,
+      "GET",
+      this.prefix + """mainpage+s+l""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:26
+  private[this] lazy val controllers_SharePictureController_uploadPicture10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("uploadPage")))
   )
-  private[this] lazy val controllers_SharePictureController_uploadPicture8_invoker = createInvoker(
+  private[this] lazy val controllers_SharePictureController_uploadPicture10_invoker = createInvoker(
     SharePictureController_5.uploadPicture(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -247,11 +287,11 @@ class Routes(
     )
   )
 
-  // @LINE:26
-  private[this] lazy val controllers_SharePictureController_upPicture9_route = Route("POST",
+  // @LINE:28
+  private[this] lazy val controllers_SharePictureController_upPicture11_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("uploadPictures")))
   )
-  private[this] lazy val controllers_SharePictureController_upPicture9_invoker = createInvoker(
+  private[this] lazy val controllers_SharePictureController_upPicture11_invoker = createInvoker(
     SharePictureController_5.upPicture(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -265,11 +305,11 @@ class Routes(
     )
   )
 
-  // @LINE:28
-  private[this] lazy val controllers_ProfileController_showProfile10_route = Route("GET",
+  // @LINE:30
+  private[this] lazy val controllers_ProfileController_showProfile12_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("profile")))
   )
-  private[this] lazy val controllers_ProfileController_showProfile10_invoker = createInvoker(
+  private[this] lazy val controllers_ProfileController_showProfile12_invoker = createInvoker(
     ProfileController_0.showProfile(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -283,11 +323,11 @@ class Routes(
     )
   )
 
-  // @LINE:30
-  private[this] lazy val controllers_CommentOnImageController_showCommentImage11_route = Route("GET",
+  // @LINE:32
+  private[this] lazy val controllers_CommentOnImageController_showCommentImage13_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("comment/"), DynamicPart("id", """.+""",false)))
   )
-  private[this] lazy val controllers_CommentOnImageController_showCommentImage11_invoker = createInvoker(
+  private[this] lazy val controllers_CommentOnImageController_showCommentImage13_invoker = createInvoker(
     CommentOnImageController_2.showCommentImage(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -298,6 +338,42 @@ class Routes(
       this.prefix + """comment/""" + "$" + """id<.+>""",
       """""",
       Seq()
+    )
+  )
+
+  // @LINE:34
+  private[this] lazy val controllers_CommentOnImageController_submitComment14_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("upcomment/"), DynamicPart("username", """.+""",false), DynamicPart("id", """.+""",false)))
+  )
+  private[this] lazy val controllers_CommentOnImageController_submitComment14_invoker = createInvoker(
+    CommentOnImageController_2.submitComment(fakeValue[String], fakeValue[Int]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommentOnImageController",
+      "submitComment",
+      Seq(classOf[String], classOf[Int]),
+      "POST",
+      this.prefix + """upcomment/""" + "$" + """username<.+>""" + "$" + """id<.+>""",
+      """""",
+      Seq("""nocsrf""")
+    )
+  )
+
+  // @LINE:36
+  private[this] lazy val controllers_CommentOnImageController_submitLikeToImage15_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("comment/"), DynamicPart("username", """.+""",false), DynamicPart("id", """.+""",false)))
+  )
+  private[this] lazy val controllers_CommentOnImageController_submitLikeToImage15_invoker = createInvoker(
+    CommentOnImageController_2.submitLikeToImage(fakeValue[String], fakeValue[Int]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommentOnImageController",
+      "submitLikeToImage",
+      Seq(classOf[String], classOf[Int]),
+      "POST",
+      this.prefix + """comment/""" + "$" + """username<.+>""" + "$" + """id<.+>""",
+      """""",
+      Seq("""nocsrf""")
     )
   )
 
@@ -352,28 +428,52 @@ class Routes(
         controllers_MainPageController_showSharePicture7_invoker.call(MainPageController_3.showSharePicture())
       }
   
-    // @LINE:24
-    case controllers_SharePictureController_uploadPicture8_route(params@_) =>
+    // @LINE:23
+    case controllers_MainPageController_sortByDate8_route(params@_) =>
       call { 
-        controllers_SharePictureController_uploadPicture8_invoker.call(SharePictureController_5.uploadPicture())
+        controllers_MainPageController_sortByDate8_invoker.call(MainPageController_3.sortByDate())
+      }
+  
+    // @LINE:24
+    case controllers_MainPageController_sortByLikes9_route(params@_) =>
+      call { 
+        controllers_MainPageController_sortByLikes9_invoker.call(MainPageController_3.sortByLikes())
       }
   
     // @LINE:26
-    case controllers_SharePictureController_upPicture9_route(params@_) =>
+    case controllers_SharePictureController_uploadPicture10_route(params@_) =>
       call { 
-        controllers_SharePictureController_upPicture9_invoker.call(SharePictureController_5.upPicture())
+        controllers_SharePictureController_uploadPicture10_invoker.call(SharePictureController_5.uploadPicture())
       }
   
     // @LINE:28
-    case controllers_ProfileController_showProfile10_route(params@_) =>
+    case controllers_SharePictureController_upPicture11_route(params@_) =>
       call { 
-        controllers_ProfileController_showProfile10_invoker.call(ProfileController_0.showProfile())
+        controllers_SharePictureController_upPicture11_invoker.call(SharePictureController_5.upPicture())
       }
   
     // @LINE:30
-    case controllers_CommentOnImageController_showCommentImage11_route(params@_) =>
+    case controllers_ProfileController_showProfile12_route(params@_) =>
+      call { 
+        controllers_ProfileController_showProfile12_invoker.call(ProfileController_0.showProfile())
+      }
+  
+    // @LINE:32
+    case controllers_CommentOnImageController_showCommentImage13_route(params@_) =>
       call(params.fromPath[Int]("id", None)) { (id) =>
-        controllers_CommentOnImageController_showCommentImage11_invoker.call(CommentOnImageController_2.showCommentImage(id))
+        controllers_CommentOnImageController_showCommentImage13_invoker.call(CommentOnImageController_2.showCommentImage(id))
+      }
+  
+    // @LINE:34
+    case controllers_CommentOnImageController_submitComment14_route(params@_) =>
+      call(params.fromPath[String]("username", None), params.fromPath[Int]("id", None)) { (username, id) =>
+        controllers_CommentOnImageController_submitComment14_invoker.call(CommentOnImageController_2.submitComment(username, id))
+      }
+  
+    // @LINE:36
+    case controllers_CommentOnImageController_submitLikeToImage15_route(params@_) =>
+      call(params.fromPath[String]("username", None), params.fromPath[Int]("id", None)) { (username, id) =>
+        controllers_CommentOnImageController_submitLikeToImage15_invoker.call(CommentOnImageController_2.submitLikeToImage(username, id))
       }
   }
 }

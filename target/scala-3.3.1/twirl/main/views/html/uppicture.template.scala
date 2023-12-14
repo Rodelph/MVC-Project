@@ -38,8 +38,8 @@ Seq[Any](format.raw/*2.1*/("""
         </div>
 
         <div class="form-container">
-            <input type="file" name="picture" class="upload-btn">
-            <form action=""""),_display_(/*17.28*/routes/*17.34*/.SharePictureController.uploadPicture()),format.raw/*17.73*/("""" method="post" enctype="multipart/form-data">
+            <form action=""""),_display_(/*16.28*/routes/*16.34*/.SharePictureController.uploadPicture()),format.raw/*16.73*/("""" method="post" enctype="multipart/form-data">
+                <input type="file" name="picture" class="upload-btn">
                 <input type="submit" value="Upload" class="upload-submit">
             </form>
         </div>
@@ -62,9 +62,9 @@ Seq[Any](format.raw/*2.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/uppicture.scala.html
-                  HASH: e5f8dc432fa7386e21a4eda8fbb109afce4228ab
-                  MATRIX: 772->1|895->31|922->33|961->64|1000->66|1031->71|1136->151|1150->157|1251->249|1291->251|1328->261|1678->584|1693->590|1753->629|1945->791|1977->793
-                  LINES: 22->1|27->2|28->3|28->3|28->3|29->4|33->8|33->8|33->8|33->8|35->10|42->17|42->17|42->17|46->21|47->22
+                  HASH: 16cadf727e2835095c027df94a6c5f778da6f6fb
+                  MATRIX: 772->1|895->31|922->33|961->64|1000->66|1031->71|1136->151|1150->157|1251->249|1291->251|1328->261|1612->518|1627->524|1687->563|1949->795|1981->797
+                  LINES: 22->1|27->2|28->3|28->3|28->3|29->4|33->8|33->8|33->8|33->8|35->10|41->16|41->16|41->16|46->21|47->22
                   -- GENERATED --
               */
           

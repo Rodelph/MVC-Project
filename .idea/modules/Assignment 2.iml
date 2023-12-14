@@ -16,7 +16,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: scala-sdk-3.3.1" level="project" />
     <orderEntry type="library" name="sbt: aopalliance:aopalliance:1.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: at.favr:lib.crypto:0.1.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: cglib:cglib:3.3.0:jar" level="project" />
     <orderEntry type="library" name="sbt: ch.qos.logback:logback-classic:1.4.11:jar" level="project" />
     <orderEntry type="library" name="sbt: ch.qos.logback:logback-core:1.4.11:jar" level="project" />

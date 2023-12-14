@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="sbt: at.favr:lib.crypto:0.1.0:jar" external-system-id="SBT">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/bcrypt-0.10.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

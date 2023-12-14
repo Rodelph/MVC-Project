@@ -3,13 +3,19 @@
 @main("Sharing Picture", session) {
     <div class="main-share-title">
         <h1>-- Fakebook --</h1>
-    </div>
 
+        <div>
+            <a href="@routes.MainPageController.sortByDate()" class="sort-link">Sort by Date</a>
+            <a href="@routes.MainPageController.sortByLikes()" class="sort-link">Sort by Likes</a>
+        </div>
+    </div>
         <!-- Your HTML structure -->
     <div class="image-container">
         @for(data <- dataDao) {
             <div>
                 <label>This picture was added at : @data.date</label>
+                <br>
+                <label>This images has @data.likes likes </label>
             </div>
 
             <div style="flex: 1; margin-right: 20px;">
@@ -17,7 +23,6 @@
             </div>
 
             <div class="image-block">
-                "@data.pictureLink"
                 <img class="display-img" src="@data.pictureLink" alt="Image">
             </div>
                 <!-- Comment Section -->
@@ -25,9 +30,11 @@
                     <!-- Display existing comments -->
                 <div class="existing-comments">
                     <h3>Comments:</h3>
-                    <p>User 1 : Cheap ass dog</p>
-                    <p>User 2 : Is he alive ?</p>
-
+                    @for((key, values) <- data.commentShared) {
+                        @for(value <- values) {
+                            <p>@key : @value</p>
+                        }
+                    }
                     <p><a href="@routes.CommentOnImageController.showCommentImage(data.pictureID)">See More</a></p>
                 </div>
             </div>
