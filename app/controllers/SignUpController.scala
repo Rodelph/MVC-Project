@@ -13,6 +13,9 @@ class SignUpController @Inject()(
 
   private val logger = play.api.Logger(this.getClass)
 
+  /**
+   * Form definition for user data.
+   */
   val formSignUp: Form[User] = Form(
     mapping(
       "username" -> nonEmptyText
@@ -29,19 +32,29 @@ class SignUpController @Inject()(
 
   private val formSubmitUrlSignup = routes.SignUpController.processSignUpAttempt
 
+  /**
+   * This function renders the login form view, passing the form and form submission URL.
+   */
   def showSignUpForm: Action[AnyContent] = Action {
     implicit request: MessagesRequest[AnyContent] =>
       Ok(views.html.signup(formSignUp, formSubmitUrlSignup))
   }
 
+  /**
+   * This function is responsible for handling the form submission during user signup.
+   *
+   *  - The function redirects based on validation success or failure:
+   *      - If the user is not found and has selected a tag that is not taken by another user, it redirects to the main page with a success flash
+   *        message and stores user session information.
+   *      - If the user is found found or the tag is already taken, it redirects back to the
+   *        signup form with an error flash message.
+   */
   def processSignUpAttempt: Action[AnyContent] = Action {
     implicit request: MessagesRequest[AnyContent] =>
       val errorFunctionSignup = { (formWithErrors: Form[User]) =>
-        // form validation/binding failed...
         BadRequest(views.html.signup(formWithErrors, formSubmitUrlSignup))
       }
       val successFunctionSignup = { (user: User) =>
-        // form validation/binding succeeded ...
         val foundTag: Boolean = userDao.lookUpTag(user)
         if !foundTag then
           val foundUser: Boolean = userDao.lookupUser(user)
@@ -62,11 +75,8 @@ class SignUpController @Inject()(
   }
 
   private def lengthIsGreaterThanNCharacters(s: String, n: Int): Boolean =
-  // should compare s to n
     true
 
   private def lengthIsLessThanNCharacters(s: String, n: Int): Boolean =
-  // should compare s to n
     true
-
 }

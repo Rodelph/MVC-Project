@@ -1,8 +1,94 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: /home/amine/dev/scama/lab/Ass 2/app/models/DataDAO.scala:83:3 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m83 |[0m  }[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m   ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m   Found:    Unit[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m   Required: Seq[models.DataMap][0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/comment.scala.html:1:1: Not found: type DataMap[0m
+[0m[[0m[31merror[0m] [0m[0m@(data: DataMap)(implicit session: Session)@* (implicit flash: Flash)*@[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/comment.scala.html:1:9: Not found: type DataMap[0m
+[0m[[0m[31merror[0m] [0m[0m@(data: DataMap)(implicit session: Session)@* (implicit flash: Flash)*@[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/comment.scala.html:17:64: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m            @helper.form(routes.CommentOnImageController.submitLikeToImage(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID), Symbol("enctype") -> "multipart/form-data") {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/comment.scala.html:18:100: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m                <form action="@routes.CommentOnImageController.submitLikeToImage(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID)" method="post" enctype="multipart/form-data">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/comment.scala.html:36:57: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m    @helper.form(routes.CommentOnImageController.submitComment(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID), Symbol("enctype") -> "multipart/form-data") {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/comment.scala.html:41:138: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m            <form action="@routes.CommentOnImageController.submitComment(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID)" method="post" enctype="multipart/form-data">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/comment.scala.html:52:2: Not found: type DataMap[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:16:64: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/mainpage.scala.html:1:1: Not found: type DataMap[0m
+[0m[[0m[31merror[0m] [0m[0m@(dataDao: Seq[DataMap])(implicit session: Session)@* (implicit flash: Flash)*@[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/userLogin.scala.html:1:1: type User is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m@(form: Form[models.User], postUrl: Call)(implicit session: Session, request: MessagesRequestHeader)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/signup.scala.html:1:1: type User is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m@(form: Form[models.User], postUrl: Call)(implicit session: Session, request: MessagesRequestHeader)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:35:30: value Global is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m                    @if(session.get(models.Global.SESSION_USERNAME_KEY).isEmpty){[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:36:50: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m                        <a class="navbar-brand" href="@routes.HomeController.index()">Home</a>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:38:48: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m                        <a class="navbar-brand" href="@routes.MainPageController.showSharePicture()">Home</a>[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:45:24: value Global is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m                        @if(session.get(models.Global.SESSION_USERNAME_KEY).isEmpty){[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:46:55: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m                            <li><a href="@routes.LoginController.showLoginForm">Login</a></li>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:47:26: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m                            <li><a href="@routes.SignUpController.showSignUpForm">Sign Up</a></li>[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:49:52: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m                            <li><a href="@routes.SharePictureController.uploadPicture()">Share Picture</a></li>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:50:23: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m                            <li><a href="@routes.ProfileController.showProfile()">Profile</a></li>[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/main.scala.html:51:22: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m                            <li><a href="@routes.AuthenticatedUserController.logout">Logout</a></li>[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/mainpage.scala.html:1:16: Not found: type DataMap[0m
+[0m[[0m[31merror[0m] [0m[0m@(dataDao: Seq[DataMap])(implicit session: Session)@* (implicit flash: Flash)*@[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/mainpage.scala.html:6:25: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m            <a href="@routes.MainPageController.sortByDate()" class="sort-link">Sort by Date</a>[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/mainpage.scala.html:7:25: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m            <a href="@routes.MainPageController.sortByLikes()" class="sort-link">Sort by Likes</a>[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/mainpage.scala.html:36:2: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/profile.scala.html:15:63: value Global is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m            <div><span class="tab"></span>@session.get(models.Global.SESSION_USERNAME_KEY).get</div>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/signup.scala.html:1:21: type User is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m@(form: Form[models.User], postUrl: Call)(implicit session: Session, request: MessagesRequestHeader)[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/signup.scala.html:51:2: type User is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/uppicture.scala.html:8:18: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m    @helper.form(routes.SharePictureController.upPicture(), Symbol("enctype") -> "multipart/form-data") {[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/uppicture.scala.html:15:29: Not found: routes[0m
+[0m[[0m[31merror[0m] [0m[0m            <form action="@routes.SharePictureController.uploadPicture()" method="post" enctype="multipart/form-data">[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/userLogin.scala.html:1:21: type User is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m@(form: Form[models.User], postUrl: Call)(implicit session: Session, request: MessagesRequestHeader)[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amine/dev/scama/lab/Ass 2/app/views/userLogin.scala.html:47:2: type User is not a member of models[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0m31 errors found[0m

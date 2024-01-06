@@ -30,57 +30,52 @@ Seq[Any](format.raw/*1.72*/("""
     """),format.raw/*4.5*/("""<link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
     <div class="main-share-title">
         <h1>-- Fakebook --</h1>
+        <label>This picture was added at : """),_display_(/*7.45*/data/*7.49*/.date),format.raw/*7.54*/(""" """),format.raw/*7.55*/("""and has """),_display_(/*7.64*/data/*7.68*/.likes),format.raw/*7.74*/(""" """),format.raw/*7.75*/("""likes.</label>
     </div>
 
-        <!-- Your HTML structure -->
     <div class="image-container">
+        <div class="image-block">
+            <div class="description">
+                <label>Description : </label>
+                <div class="description-text">"""),_display_(/*14.48*/data/*14.52*/.description),format.raw/*14.64*/("""</div>
+            </div>
 
-        <div>
-            <label>This picture was added at : """),_display_(/*13.49*/data/*13.53*/.date),format.raw/*13.58*/("""</label>
+            """),_display_(/*17.14*/helper/*17.20*/.form(routes.CommentOnImageController.submitLikeToImage(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID), Symbol("enctype") -> "multipart/form-data")/*17.189*/ {_display_(Seq[Any](format.raw/*17.191*/("""
+                """),format.raw/*18.17*/("""<form action=""""),_display_(/*18.32*/routes/*18.38*/.CommentOnImageController.submitLikeToImage(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID)),format.raw/*18.150*/("""" method="post" enctype="multipart/form-data">
+                    <img class="display-img-2" src=""""),_display_(/*19.54*/data/*19.58*/.pictureLink),format.raw/*19.70*/("""" alt="Image">
+                    <button class="like-button" type="submit" value="Submit"><i class="far fa-thumbs-up"></i>Like</button>
+                </form>
+            """)))}),format.raw/*22.14*/("""
+                """),format.raw/*23.17*/("""<!-- Comment Section -->
+            <div class="comment-section">
+                    <!-- Display existing comments -->
+                    <h3>Comments:</h3>
+                    """),_display_(/*27.22*/for((key, values) <- data.commentShared) yield /*27.62*/ {_display_(Seq[Any](format.raw/*27.64*/("""
+                        """),_display_(/*28.26*/for(value <- values) yield /*28.46*/ {_display_(Seq[Any](format.raw/*28.48*/("""
+                            """),format.raw/*29.29*/("""<p class="description-text">"""),_display_(/*29.58*/key),format.raw/*29.61*/(""" """),format.raw/*29.62*/(""": """),_display_(/*29.65*/value),format.raw/*29.70*/("""</p>
+                        """)))}),format.raw/*30.26*/("""
+                    """)))}),format.raw/*31.22*/("""
+            """),format.raw/*32.13*/("""</div>
         </div>
+    </div>
+    <!-- Add a form for submitting a comment -->
+    """),_display_(/*36.6*/helper/*36.12*/.form(routes.CommentOnImageController.submitComment(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID), Symbol("enctype") -> "multipart/form-data")/*36.177*/ {_display_(Seq[Any](format.raw/*36.179*/("""
+        """),format.raw/*37.9*/("""<br>
+        <br>
 
-        <div style="flex: 1; margin-right: 20px;">
-            <label>Description : """),_display_(/*17.35*/data/*17.39*/.description),format.raw/*17.51*/("""</label>
-            <br>
-            <label>This images has """),_display_(/*19.37*/data/*19.41*/.likes),format.raw/*19.47*/(""" """),format.raw/*19.48*/("""likes </label>
-        </div>
-
-        """),_display_(/*22.10*/helper/*22.16*/.form(routes.CommentOnImageController.submitLikeToImage(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID), Symbol("enctype") -> "multipart/form-data")/*22.185*/ {_display_(Seq[Any](format.raw/*22.187*/("""
-        """),format.raw/*23.9*/("""<div class="image-block">
-            <form action=""""),_display_(/*24.28*/routes/*24.34*/.CommentOnImageController.submitLikeToImage(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID)),format.raw/*24.146*/("""" method="post" enctype="multipart/form-data">
-                <img class="display-img" src=""""),_display_(/*25.48*/data/*25.52*/.pictureLink),format.raw/*25.64*/("""" alt="Image">
-                <button class="like-button" type="submit" value="Submit"><i class="far fa-thumbs-up"></i>Like</button>
+        <div class="comment-section-2">
+            <form action=""""),_display_(/*41.28*/routes/*41.34*/.CommentOnImageController.submitComment(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID)),format.raw/*41.142*/("""" method="post" enctype="multipart/form-data">
+                <label>
+                    <div><label for="picture-info">Comment on the picture:</label></div>
+                    <textarea name="commentText" rows="2" cols="10" placeholder="Add your comment here..."></textarea>
+                </label>
+                <br>
+                <input type="submit" value="Submit">
             </form>
         </div>
-        """)))}),format.raw/*29.10*/("""
-            """),format.raw/*30.13*/("""<!-- Comment Section -->
-        <div class="comment-section">
-                <!-- Display existing comments -->
-            <div class="existing-comments">
-                <h3>Comments:</h3>
-                """),_display_(/*35.18*/for((key, values) <- data.commentShared) yield /*35.58*/ {_display_(Seq[Any](format.raw/*35.60*/("""
-                    """),_display_(/*36.22*/for(value <- values) yield /*36.42*/ {_display_(Seq[Any](format.raw/*36.44*/("""
-                        """),format.raw/*37.25*/("""<p>"""),_display_(/*37.29*/key),format.raw/*37.32*/(""" """),format.raw/*37.33*/(""": """),_display_(/*37.36*/value),format.raw/*37.41*/("""</p>
-                    """)))}),format.raw/*38.22*/("""
-                """)))}),format.raw/*39.18*/("""
-            """),format.raw/*40.13*/("""</div>
+    """)))}),format.raw/*50.6*/("""
 
-            <!-- Add a form for submitting a comment -->
-            """),_display_(/*43.14*/helper/*43.20*/.form(routes.CommentOnImageController.submitComment(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID), Symbol("enctype") -> "multipart/form-data")/*43.185*/ {_display_(Seq[Any](format.raw/*43.187*/("""
-                """),format.raw/*44.17*/("""<div class="centered-textarea">
-                    <label for="picture-info">Information on the picture:</label>
-                    <form action=""""),_display_(/*46.36*/routes/*46.42*/.CommentOnImageController.submitComment(session.get(models.Global.SESSION_USERNAME_KEY).get, data.pictureID)),format.raw/*46.150*/("""" method="post" enctype="multipart/form-data">
-                        <label>
-                            <textarea class="comment-section" name="commentText" rows="2" cols="10" placeholder="Add your comment here..."></textarea>
-                        </label>
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
-            """)))}),format.raw/*54.14*/("""
-        """),format.raw/*55.9*/("""</div>
-    </div>
-""")))}),format.raw/*57.2*/("""
+""")))}),format.raw/*52.2*/("""
 """))
       }
     }
@@ -98,9 +93,9 @@ Seq[Any](format.raw/*1.72*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/comment.scala.html
-                  HASH: 8df90de4d0a45b544b739d3fc77e5894dc32a7ab
-                  MATRIX: 778->1|915->71|943->74|980->103|1019->105|1050->110|1358->391|1371->395|1397->400|1534->510|1547->514|1580->526|1669->588|1682->592|1709->598|1738->599|1805->639|1820->645|1999->814|2040->816|2076->825|2156->878|2171->884|2305->996|2426->1090|2439->1094|2472->1106|2681->1284|2722->1297|2959->1507|3015->1547|3055->1549|3104->1571|3140->1591|3180->1593|3233->1618|3264->1622|3288->1625|3317->1626|3347->1629|3373->1634|3430->1660|3479->1678|3520->1691|3625->1769|3640->1775|3815->1940|3856->1942|3901->1959|4077->2108|4092->2114|4222->2222|4670->2639|4706->2648|4755->2667
-                  LINES: 22->1|27->1|29->3|29->3|29->3|30->4|39->13|39->13|39->13|43->17|43->17|43->17|45->19|45->19|45->19|45->19|48->22|48->22|48->22|48->22|49->23|50->24|50->24|50->24|51->25|51->25|51->25|55->29|56->30|61->35|61->35|61->35|62->36|62->36|62->36|63->37|63->37|63->37|63->37|63->37|63->37|64->38|65->39|66->40|69->43|69->43|69->43|69->43|70->44|72->46|72->46|72->46|80->54|81->55|83->57
+                  HASH: c2c1fff7db483fb76184e33fbfe43b4a3c3e1a5d
+                  MATRIX: 778->1|915->71|943->74|980->103|1019->105|1050->110|1255->289|1267->293|1292->298|1320->299|1355->308|1367->312|1393->318|1421->319|1674->545|1687->549|1720->561|1787->601|1802->607|1981->776|2022->778|2067->795|2109->810|2124->816|2258->928|2385->1028|2398->1032|2431->1044|2637->1219|2682->1236|2891->1418|2947->1458|2987->1460|3040->1486|3076->1506|3116->1508|3173->1537|3229->1566|3253->1569|3282->1570|3312->1573|3338->1578|3399->1608|3452->1630|3493->1643|3606->1730|3621->1736|3796->1901|3837->1903|3873->1912|3986->1998|4001->2004|4131->2112|4579->2530|4612->2533
+                  LINES: 22->1|27->1|29->3|29->3|29->3|30->4|33->7|33->7|33->7|33->7|33->7|33->7|33->7|33->7|40->14|40->14|40->14|43->17|43->17|43->17|43->17|44->18|44->18|44->18|44->18|45->19|45->19|45->19|48->22|49->23|53->27|53->27|53->27|54->28|54->28|54->28|55->29|55->29|55->29|55->29|55->29|55->29|56->30|57->31|58->32|62->36|62->36|62->36|62->36|63->37|67->41|67->41|67->41|76->50|78->52
                   -- GENERATED --
               */
           

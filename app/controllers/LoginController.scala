@@ -12,6 +12,9 @@ class LoginController @Inject()(cc: MessagesControllerComponents,
 
     private val logger = play.api.Logger(this.getClass)
 
+    /**
+     * Form definition for user data.
+     */
     val form: Form[User] = Form(
         mapping(
             "username" -> nonEmptyText
@@ -26,11 +29,22 @@ class LoginController @Inject()(cc: MessagesControllerComponents,
 
     private val formSubmitUrl = routes.LoginController.processLoginAttempt
 
+    /**
+     * This function renders the login form view, passing the form and form submission URL.
+     */
     def showLoginForm: Action[AnyContent] = Action {
         implicit request: MessagesRequest[AnyContent] =>
             Ok(views.html.userLogin(form, formSubmitUrl))
     }
 
+    /**
+     * The function handles the login attempt by a user:
+     *
+     *  - The first part of the function validates form data submitted by the user.
+     *  - Then it redirects based on validation success or failure:
+     *      - If the user is found in the userDao, it redirects to the main page with a success flash message and stores user session information.
+     *      - If the user is not found or the login credentials are invalid, it redirects back to the login form with an error flash message.
+     */
     def processLoginAttempt: Action[AnyContent] = Action {
         implicit request: MessagesRequest[AnyContent] =>
             val errorFunction = { (formWithErrors: Form[User]) =>
@@ -65,5 +79,4 @@ class LoginController @Inject()(cc: MessagesControllerComponents,
 
     private def lengthIsLessThanNCharacters(s: String, n: Int): Boolean =
         s.length < n
-
 }

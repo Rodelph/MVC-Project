@@ -31,20 +31,19 @@ Seq[Any](format.raw/*2.1*/("""
     </div>
 
     """),_display_(/*8.6*/helper/*8.12*/.form(routes.SharePictureController.upPicture(), Symbol("enctype") -> "multipart/form-data")/*8.104*/ {_display_(Seq[Any](format.raw/*8.106*/("""
-
-        """),format.raw/*10.9*/("""<div class="centered-textarea">
+        """),format.raw/*9.9*/("""<div class="centered-textarea">
             <label for="picture-info">Information on the picture:</label>
             <textarea id="picture-info" name="pictureInfo"></textarea>
         </div>
 
         <div class="form-container">
-            <form action=""""),_display_(/*16.28*/routes/*16.34*/.SharePictureController.uploadPicture()),format.raw/*16.73*/("""" method="post" enctype="multipart/form-data">
+            <form action=""""),_display_(/*15.28*/routes/*15.34*/.SharePictureController.uploadPicture()),format.raw/*15.73*/("""" method="post" enctype="multipart/form-data">
                 <input type="file" name="picture" class="upload-btn">
                 <input type="submit" value="Upload" class="upload-submit">
             </form>
         </div>
-    """)))}),format.raw/*21.6*/("""
-""")))}),format.raw/*22.2*/("""
+    """)))}),format.raw/*20.6*/("""
+""")))}),format.raw/*21.2*/("""
 """))
       }
     }
@@ -62,9 +61,9 @@ Seq[Any](format.raw/*2.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/uppicture.scala.html
-                  HASH: 16cadf727e2835095c027df94a6c5f778da6f6fb
-                  MATRIX: 772->1|895->31|922->33|961->64|1000->66|1031->71|1136->151|1150->157|1251->249|1291->251|1328->261|1612->518|1627->524|1687->563|1949->795|1981->797
-                  LINES: 22->1|27->2|28->3|28->3|28->3|29->4|33->8|33->8|33->8|33->8|35->10|41->16|41->16|41->16|46->21|47->22
+                  HASH: d6705ac6f1764f870137dee76cb8624866a593fd
+                  MATRIX: 772->1|895->31|922->33|961->64|1000->66|1031->71|1136->151|1150->157|1251->249|1291->251|1326->260|1610->517|1625->523|1685->562|1947->794|1979->796
+                  LINES: 22->1|27->2|28->3|28->3|28->3|29->4|33->8|33->8|33->8|33->8|34->9|40->15|40->15|40->15|45->20|46->21
                   -- GENERATED --
               */
           

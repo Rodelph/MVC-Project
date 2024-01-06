@@ -1,43 +1,36 @@
 @(dataDao: Seq[DataMap])(implicit session: Session)@* (implicit flash: Flash)*@
-
 @main("Sharing Picture", session) {
     <div class="main-share-title">
         <h1>-- Fakebook --</h1>
-
         <div>
             <a href="@routes.MainPageController.sortByDate()" class="sort-link">Sort by Date</a>
             <a href="@routes.MainPageController.sortByLikes()" class="sort-link">Sort by Likes</a>
         </div>
     </div>
-        <!-- Your HTML structure -->
+
     <div class="image-container">
-        @for(data <- dataDao) {
-            <div>
-                <label>This picture was added at : @data.date</label>
-                <br>
-                <label>This images has @data.likes likes </label>
+    @for(data <- dataDao) {
+        <div class="image-block">
+            <div class="description">
+                <div><label>This picture was added at : @data.date and has @data.likes likes.</label></div>
+                <label>Description: </label>
+                <div class="description-text">@data.description</div>
             </div>
 
-            <div style="flex: 1; margin-right: 20px;">
-                <label>Description : @data.description</label>
-            </div>
+            <img class="display-img" src="@data.pictureLink" alt="Image">
 
-            <div class="image-block">
-                <img class="display-img" src="@data.pictureLink" alt="Image">
-            </div>
-                <!-- Comment Section -->
             <div class="comment-section">
-                    <!-- Display existing comments -->
                 <div class="existing-comments">
                     <h3>Comments:</h3>
                     @for((key, values) <- data.commentShared) {
                         @for(value <- values) {
-                            <p>@key : @value</p>
+                            <p class="description-text">@key : @value</p>
                         }
                     }
                     <p><a href="@routes.CommentOnImageController.showCommentImage(data.pictureID)">See More</a></p>
                 </div>
             </div>
-        }
+        </div>
+    }
     </div>
 }

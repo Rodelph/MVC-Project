@@ -2,13 +2,9 @@ package controllers
 
 import models.{DataDAO, DataMap}
 import play.api.data.Form
-import play.api.data.Forms.{nonEmptyText, text}
-import play.api.libs.Files.TemporaryFile
-
+import play.api.data.Forms.nonEmptyText
 import javax.inject.*
 import play.api.mvc.*
-
-import scala.xml.Comment
 
 @Singleton
 class CommentOnImageController @Inject()(cc: ControllerComponents,
@@ -16,6 +12,9 @@ class CommentOnImageController @Inject()(cc: ControllerComponents,
                                    authenticatedUserAction: AuthenticatedUserAction
                                   ) extends AbstractController(cc) {
 
+  /**
+   * Retrieves data associated with a specific image ID and renders a view for commenting on that image.
+   */
   def showCommentImage(id: Int): Action[AnyContent] = authenticatedUserAction {
     implicit request: Request[AnyContent] =>
       var cache: DataMap = null
@@ -26,13 +25,16 @@ class CommentOnImageController @Inject()(cc: ControllerComponents,
       Ok(views.html.comment(cache))
   }
 
+  /**
+   * This function handles submission of comments for an image. Validates a non-empty text comment, adds it to the data, and redirects back to the image view.
+   */
   def submitComment(username: String, pictureID: Int): Action[AnyContent] = authenticatedUserAction {
     implicit request =>
       val commentForm = Form("commentText" -> nonEmptyText)
       commentForm.bindFromRequest().fold(
-        // Handle form errors
         errorForm => {
-          BadRequest("Invalid form data")
+          Redirect(routes.CommentOnImageController.showCommentImage(pictureID))
+            .flashing("Failure" -> "Comment not submitted successfully")
         }, commentText => {
 
           dataDao.addComment(commentText, username, pictureID)
@@ -42,6 +44,9 @@ class CommentOnImageController @Inject()(cc: ControllerComponents,
     )
   }
 
+  /**
+   * This function handles submission of a 'like' for an image by a user. It adds the user's like to the image data and redirects back to the image view.
+   */
   def submitLikeToImage(username: String, pictureID : Int) : Action[AnyContent] = authenticatedUserAction {
     implicit request : Request[AnyContent] =>
       dataDao.addLikeUser(username, pictureID)
